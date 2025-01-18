@@ -470,8 +470,10 @@ export default function Graphics() {
   // noviembre
   const [vendidos4, setVendidos4] = useState([]);
   const [razonSocial4, setRazonSocial4] = useState([]);
-
+  
   useEffect(() => {
+   
+    // totales
     setMonthlyData(
       data.vendidos.map((item, index) => {
         let value = item.data.reduce((prev, curr) => prev + Number(curr.kg), 0);
@@ -500,6 +502,9 @@ export default function Graphics() {
         Resultado comparado
       </Typography>
       {/* total */}
+      <Box style={{ display: "flex", justifyContent:"space-between" }}>
+      <Box>
+        <Typography style={{textAlign:"center", marginBottom:20}}>Totales</Typography>
       <PieChart
         series={[
           {
@@ -509,6 +514,20 @@ export default function Graphics() {
         width={400}
         height={200}
       />
+      </Box>
+      <Box>
+      <Box style={{display:"flex", justifyContent:"space-around"}}>
+        <Typography style={{width:"40%",textAlign:"center", marginBottom:20, backgroundColor:"#1abc9c", color:"#ecf0f1"}}>Envasado</Typography>
+        <Typography style={{width:"40%",textAlign:"center", marginBottom:20, backgroundColor:"#3498db", color:"#ecf0f1"}}>Granel</Typography>
+      </Box>
+      <BarChart
+        xAxis={[{ scaleType: 'band', data: ['Septiembre', 'Octubre', 'Noviembre', 'Diciembre'] }]}
+        series={[{ data: [17232, 20149, 17120, 17529] }, { data: [15282, 11299, 6710,9989] }]}
+        width={500}
+        height={300}
+      />
+      </Box>
+      </Box>
       {/* Septiembre */}
       <Typography style={{ color: "#2c3e50", fontWeight: "bold", margin: 20 }}>
         Septiembre: {" " + vendidos.reduce((prev, curr) => prev + curr, 0)}
