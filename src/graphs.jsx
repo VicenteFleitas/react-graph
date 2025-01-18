@@ -522,7 +522,7 @@ export default function Graphics() {
       </Box>
       <BarChart
         xAxis={[{ scaleType: 'band', data: ['Septiembre', 'Octubre', 'Noviembre', 'Diciembre'] }]}
-        series={[{ data: [17232, 20149, 17120, 17529] }, { data: [15282, 11299, 6710,9989] }]}
+        series={[{ data: [17232, 20149, 17120, 17529], label:"Envasado" }, { data: [15282, 11299, 6710,9989],label:"Granel" }]}
         width={500}
         height={300}
       />
